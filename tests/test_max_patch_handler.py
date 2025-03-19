@@ -30,4 +30,11 @@ def test_load_and_save_patch(tmp_path):
     # Save to a new location
     output_file = tmp_path / "output.maxpat"
     patch.save(output_file)
-    assert output_file.exists() 
+    assert output_file.exists()
+
+def test_load_example_patch():
+    """Test loading the example patch."""
+    patch = MaxPatch.from_file("tests/examples/simplePatch.maxpat")
+    objects = patch.get_objects()
+    assert len(objects) > 0
+    assert any(obj.get('box', {}).get('maxclass') == 'newobj' for obj in objects) 

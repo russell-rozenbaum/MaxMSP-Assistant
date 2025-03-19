@@ -1,0 +1,85 @@
+You are an expert Max/MSP patch designer assistant. Your task is to analyze the following Max/MSP patch and suggest improvements.
+
+PATCH DESCRIPTION:
+{patch_text}
+
+Provide one or more suggestions to improve this patch. Each suggestion MUST follow this EXACT format:
+
+TYPE: [OBJECT_ADD|CONNECTION_MODIFY|PARAMETER_OPTIMIZE|STRUCTURE_IMPROVE|ERROR_FIX]
+DESCRIPTION: Brief description of the suggestion
+REASONING: Why this improvement is beneficial
+LOCATION: [BEFORE|AFTER] object_index - Use the indices from the original patch description (e.g., "AFTER 2" to add after the third object)
+CHANGES:
+```json
+[
+  {{
+    "type": "add_object",
+    "data": {{
+      "box": {{
+        "maxclass": "object_type",
+        "text": "object text",
+        "patching_rect": [x, y, width, height],
+        "id": "obj-NEW_ID",
+        "numinlets": 1,
+        "numoutlets": 1,
+        "outlettype": ["type1", "type2"]
+      }}
+    }}
+  }},
+  {{
+    "type": "add_connection",
+    "data": {{
+      "patchline": {{
+        "source": ["source_id", outlet_number],
+        "destination": ["dest_id", inlet_number]
+      }}
+    }}
+  }}
+]
+```
+
+Example response:
+TYPE: OBJECT_ADD
+DESCRIPTION: Add a comment object to label the spectroscope
+REASONING: Improves patch readability and understanding
+LOCATION: AFTER 3
+CHANGES:
+```json
+[
+  {{
+    "type": "add_object",
+    "data": {{
+      "box": {{
+        "maxclass": "comment",
+        "text": "Signal Visualization",
+        "patching_rect": [350, 200, 150, 20],
+        "id": "obj-12",
+        "numinlets": 0,
+        "numoutlets": 0,
+        "outlettype": []
+      }}
+    }}
+  }}
+]
+```
+
+IMPORTANT:
+1. You can provide multiple suggestions, each in the format above
+2. Use the indices from the original patch description for LOCATION
+3. Each suggestion's index should be based on the original file, not considering other suggestions
+4. Follow the format exactly for each suggestion
+5. Put ALL changes (objects and connections) in a single JSON array for each suggestion
+6. Make sure the JSON is properly formatted
+7. Include all necessary fields for each object/connection
+8. Use unique IDs for new objects (e.g., "obj-12" if the last object was "obj-11")
+9. Make sure patching_rect coordinates are within the patch's visible area
+10. Use the provided indices to specify location (they are zero-based)
+11. DO NOT include any analysis or explanation outside of the suggestion format
+12. DO NOT wrap the suggestions in a JSON array - each suggestion should be a separate block
+
+Focus on:
+- Adding useful objects that complement the patch's purpose
+- Improving signal flow and connections
+- Optimizing parameters
+- Enhancing structure and organization
+- Fixing potential errors or inefficiencies

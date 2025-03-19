@@ -6,7 +6,7 @@ from src.max_patch_handler import MaxPatch
 
 def main():
     # Load the patch
-    patch = MaxPatch.from_file("examples/simplePatch.maxpat")
+    patch = MaxPatch.from_file("tests/examples/simplePatch.maxpat")
     
     # Get all objects
     objects = patch.get_objects()
@@ -27,8 +27,8 @@ def main():
         print(f"- {source[0]} ({source[1]}) -> {dest[0]} ({dest[1]})")
     
     # Save a copy of the patch
-    patch.save("examples/simplePatch_copy.maxpat")
-    print("\nSaved a copy of the patch to 'examples/simplePatch_copy.maxpat'")
+    patch.save("tests/examples/simplePatch_copy.maxpat")
+    print("\nSaved a copy of the patch to 'tests/examples/simplePatch_copy.maxpat'")
 
 if __name__ == "__main__":
     main() 

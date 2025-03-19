@@ -3,7 +3,7 @@ Core module for handling Max/MSP patches.
 """
 import json
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List, Tuple
 from pydantic import BaseModel, Field
 
 class MaxPatch(BaseModel):
@@ -38,4 +38,9 @@ class MaxPatch(BaseModel):
     
     def get_connections(self) -> list[Dict[str, Any]]:
         """Get all connections in the patch."""
-        return self.contents.get('patcher', {}).get('lines', []) 
+        return self.contents.get('patcher', {}).get('lines', [])
+    
+    def get_patcher_rect(self) -> List[float]:
+        """Get the patch window dimensions [x, y, width, height]."""
+        rect = self.contents.get('patcher', {}).get('rect', [0.0, 0.0, 800.0, 600.0])
+        return rect 
