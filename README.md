@@ -1,69 +1,64 @@
-# Max/MSP Patch Handler
+# Max/MSP Assistant
 
-A Python library for handling Max/MSP patches, with a focus on automation and programmatic manipulation of patch files.
-
-## Project Structure
-
-```
-max-msp-assistant/
-├── src/                    # Source code
-│   └── max_patch_handler.py
-├── tests/                  # Test files
-│   ├── __init__.py
-│   ├── test_max_patch_handler.py
-│   └── test_simple_patch.py
-├── examples/              # Example Max patches
-│   └── simplePatch.maxpat
-├── requirements.txt
-└── README.md
-```
+An AI-powered assistant for Max/MSP patch development and optimization.
 
 ## Features
 
-- Load and save Max/MSP patch files (.maxpat)
-- Access patch objects and connections
-- Basic patch manipulation capabilities
+- Analyzes Max/MSP patches using LLM technology
+- Suggests improvements to patch structure and functionality
+- Automatically applies suggested changes to patches
+- Handles multiple suggestions with proper index management
+- Supports various types of improvements:
+  - Object additions
+  - Connection modifications
+  - Parameter optimizations
+  - Structure improvements
+  - Error fixes
 
-## Installation
+## Recent Updates
 
-1. Clone this repository
-2. Install dependencies:
+### Multiple Suggestion Support
 
-```bash
-pip install -r requirements.txt
-```
+- Enhanced the LLM client to handle multiple suggestions per analysis
+- Implemented proper index management for sequential changes
+- Improved suggestion sorting and processing
+
+### Improved Prompt Engineering
+
+- Refined the LLM prompt for better suggestion formatting
+- Added explicit examples and format requirements
+- Enhanced error handling for malformed suggestions
+
+### Security Improvements
+
+- Added `.env` file support for API key management
+- Created `.env.example` template for developer setup
+- Ensured sensitive data is properly gitignored
+
+## Setup
+
+1. Clone the repository
+2. Copy `.env.example` to `.env` and add your OpenRouter API key:
+   ```bash
+   cp .env.example .env
+   ```
+3. Edit `.env` and replace `your_api_key_here` with your actual OpenRouter API key
 
 ## Usage
 
-```python
-from src.max_patch_handler import MaxPatch
+Run the test script to analyze a patch:
 
-# Load a patch
-patch = MaxPatch.from_file("examples/patch.maxpat")
-
-# Get all objects in the patch
-objects = patch.get_objects()
-
-# Get all connections
-connections = patch.get_connections()
-
-# Save the patch to a new location
-patch.save("examples/output.maxpat")
+```bash
+PYTHONPATH=. python tests/test_gemini_analysis.py
 ```
 
 ## Development
 
-To run tests:
+The project uses:
 
-```bash
-pytest tests/
-```
-
-To analyze an example patch:
-
-```bash
-python tests/test_simple_patch.py
-```
+- Python 3.x
+- OpenRouter API for LLM access
+- JSON-based Max/MSP patch format
 
 ## License
 
