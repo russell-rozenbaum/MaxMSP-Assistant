@@ -59,6 +59,24 @@
       },
       {
         "box": {
+          "maxclass": "flonum",
+          "patching_rect": [
+            300.0,
+            300.0,
+            50.0,
+            22.0
+          ],
+          "id": "obj-14",
+          "numinlets": 1,
+          "numoutlets": 2,
+          "outlettype": [
+            "",
+            "bang"
+          ]
+        }
+      },
+      {
+        "box": {
           "addpoints": [
             0.0,
             0.0,
@@ -94,24 +112,6 @@
             200.0,
             100.0
           ]
-        }
-      },
-      {
-        "box": {
-          "maxclass": "comment",
-          "text": "Gain Envelope",
-          "patching_rect": [
-            200,
-            200,
-            100,
-            20
-          ],
-          "id": "obj-13",
-          "numinlets": 0,
-          "numoutlets": 0,
-          "outlettype": [],
-          "fontname": "Arial",
-          "fontsize": 12
         }
       },
       {
@@ -153,26 +153,6 @@
       },
       {
         "box": {
-          "maxclass": "message",
-          "text": "0",
-          "patching_rect": [
-            250,
-            100,
-            29,
-            22
-          ],
-          "id": "obj-12",
-          "numinlets": 0,
-          "numoutlets": 1,
-          "outlettype": [
-            "bang"
-          ],
-          "fontname": "Arial",
-          "fontsize": 12
-        }
-      },
-      {
-        "box": {
           "id": "obj-3",
           "maxclass": "button",
           "numinlets": 1,
@@ -205,22 +185,38 @@
       },
       {
         "box": {
-          "maxclass": "message",
-          "text": "440",
+          "maxclass": "kslider",
           "patching_rect": [
-            50,
-            50,
-            30,
-            20
+            59.0,
+            119.0,
+            336.0,
+            66.0
           ],
-          "id": "obj-8",
-          "numinlets": 0,
+          "id": "obj-12",
+          "numinlets": 2,
+          "numoutlets": 2,
+          "outlettype": [
+            "int",
+            "float"
+          ]
+        }
+      },
+      {
+        "box": {
+          "maxclass": "newobj",
+          "text": "mtof",
+          "patching_rect": [
+            59.0,
+            190.0,
+            38.0,
+            22.0
+          ],
+          "id": "obj-13",
+          "numinlets": 1,
           "numoutlets": 1,
           "outlettype": [
-            "bang"
-          ],
-          "fontname": "Arial",
-          "fontsize": 12
+            "float"
+          ]
         }
       },
       {
@@ -333,12 +329,24 @@
       {
         "patchline": {
           "source": [
-            "obj-10",
+            "obj-11",
             0
           ],
           "destination": [
-            "obj-0",
-            1
+            "obj-14",
+            0
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "source": [
+            "obj-3",
+            0
+          ],
+          "destination": [
+            "obj-10",
+            0
           ]
         }
       },
@@ -349,7 +357,7 @@
             0
           ],
           "destination": [
-            "obj-4",
+            "obj-13",
             0
           ]
         }
@@ -357,11 +365,11 @@
       {
         "patchline": {
           "source": [
-            "obj-8",
+            "obj-13",
             0
           ],
           "destination": [
-            "obj-7",
+            "obj-1",
             0
           ]
         }

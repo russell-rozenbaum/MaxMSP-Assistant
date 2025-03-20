@@ -1,5 +1,5 @@
 """
-Test script for analyzing a patch using the Gemini model.
+Test script for analyzing a patch using the Gemini Flash Lite model.
 """
 from pathlib import Path
 from src.max_patch_handler import MaxPatch
@@ -48,11 +48,11 @@ def main():
     print("Generated patch description:")
     print(description)
     
-    # Initialize LLM client
+    # Initialize LLM client with Gemini Flash Lite model
     client = OpenRouterClient(model="google/gemini-2.0-flash-lite-001")
     
     # Get suggestions
-    print("\nRequesting suggestions from Gemini...")
+    print("\nRequesting suggestions from Gemini Flash Lite...")
     suggestions = client.analyze_patch(description)
     
     # Print each suggestion in a structured way
@@ -70,7 +70,7 @@ def main():
             print(change['data'])
     
     # Apply changes to create a new patch
-    output_path = "tests/examples/simplePatch_suggestion.maxpat"
+    output_path = "tests/examples/simplePatch_gemini_flash_lite_suggestion.maxpat"
     if client.apply_changes_to_patch(patch_path, suggestions, output_path):
         print(f"\nSuccessfully created new patch at: {output_path}")
     else:
