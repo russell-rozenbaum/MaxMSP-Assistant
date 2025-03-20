@@ -71,13 +71,17 @@ CHANGES:
 
 ## Patch Visualizations
 
-> **Note:** The following examples serve as a proof of concept. While they demonstrate the basic functionality, the current implementation still has room for improvement in terms of patch organization, object positioning, and suggestion quality. 
+> **Note:** The following examples serve as a proof of concept. While they demonstrate the basic functionality, the current implementation still has room for improvement in terms of patch organization, object positioning, and suggestion quality.
 
-### Original Test Patch
+### Original Test Patches
 
-![Original Test Patch](docs/images/simplePatch.png)
+![Original Simple Test Patch](docs/images/simplePatch.png)
 
 A simple synthesizer patch that generates a 440Hz tone with amplitude control.
+
+![Original Simple Playback Patch](docs/images/playbackPatchOrig.png)
+
+A simple, unconnected playback patch that plays an audio file after applying a gain effect.
 
 ### Gemini Pro Enhanced Version
 
@@ -87,10 +91,15 @@ The patch after Gemini Pro's suggested improvements:
 
 - Added frequency control with kslider and mtof objects
 - Modified signal routing for frequency control
-- Added initialization message
-- Improved object positioning
 
-The patch has some significant pitfalls after Gemini Pro's suggestions:
+![Gemini Pro Enhanced Patch](docs/images/playbackPatch_gemini_pro_suggestion.png)
+
+The patch after Gemini Pro's suggested improvements:
+
+- Added gain control with live.gain object
+- Includes scope~ object for audio visualization
+
+These patches have some significant common pitfalls after Gemini Pro's suggestions:
 
 - Poor object positioning
 - Useless objects

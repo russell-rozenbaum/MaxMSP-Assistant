@@ -40,7 +40,7 @@ def generate_patch_description(patch: MaxPatch) -> str:
 
 def main():
     # Load the patch
-    patch_path = "tests/examples/simplePatch.maxpat"
+    patch_path = "tests/examples/delay_patch_orig.maxpat"
     patch = MaxPatch.from_file(patch_path)
     
     # Generate description
@@ -70,7 +70,7 @@ def main():
             print(change['data'])
     
     # Apply changes to create a new patch
-    output_path = "tests/examples/simplePatch_gemini_pro_suggestion.maxpat"
+    output_path = "tests/examples/delayPatch_gemini_pro_suggestion.maxpat"
     if client.apply_changes_to_patch(patch_path, suggestions, output_path):
         print(f"\nSuccessfully created new patch at: {output_path}")
     else:
