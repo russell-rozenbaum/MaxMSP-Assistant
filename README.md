@@ -99,7 +99,7 @@ Other proof of poor performance (not demonstrated in this example) are suggestio
 
 - Fail to connect objects properly
 - Leave ill-described comments
-- Gives (at best) weak/novel improvements
+- Give (at best) weak/novel improvements
 
 ## Development
 
