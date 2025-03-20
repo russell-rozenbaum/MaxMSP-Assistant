@@ -99,27 +99,16 @@ CHANGES:
 
 A simple synthesizer patch that generates a 440Hz tone with amplitude control.
 
-### Gemini Flash Lite Enhanced Version
-
-![Gemini Flash Lite Enhanced Patch](docs/images/simplePatch_gemini_flash_lite_suggestion.png)
-
-The patch after Gemini Flash Lite's suggested improvements:
-
-- Added frequency control with kslider and mtof objects
-- Modified signal routing for frequency control
-- Added descriptive comments
-- Attempted to improve visual organization (though positioning could be better)
-
 ### Gemini Pro Enhanced Version
 
 ![Gemini Pro Enhanced Patch](docs/images/simplePatch_gemini_pro_suggestion.png)
 
 The patch after Gemini Pro's suggested improvements:
 
-- Added descriptive comments
-- Improved object positioning
+- Added frequency control with kslider and mtof objects
+- Modified signal routing for frequency control
 - Added initialization message
-- Enhanced visual organization
+- Improved object positioning
 
 ## Development
 
