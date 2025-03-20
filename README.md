@@ -8,32 +8,12 @@ An AI-powered assistant for Max/MSP patch development and optimization.
 - Suggests improvements to patch structure and functionality
 - Automatically applies suggested changes to patches
 - Handles multiple suggestions with proper index management
-- Supports various types of improvements:
+- Supports various types of patch improvements:
   - Object additions
   - Connection modifications
   - Parameter optimizations
   - Structure improvements
   - Error fixes
-
-## Recent Updates
-
-### Multiple Suggestion Support
-
-- Enhanced the LLM client to handle multiple suggestions per analysis
-- Implemented proper index management for sequential changes
-- Improved suggestion sorting and processing
-
-### Improved Prompt Engineering
-
-- Refined the LLM prompt for better suggestion formatting
-- Added explicit examples and format requirements
-- Enhanced error handling for malformed suggestions
-
-### Security Improvements
-
-- Added `.env` file support for API key management
-- Created `.env.example` template for developer setup
-- Ensured sensitive data is properly gitignored
 
 ## Setup
 
@@ -46,10 +26,10 @@ An AI-powered assistant for Max/MSP patch development and optimization.
 
 ## Usage
 
-Run the test script to analyze a patch:
+Run the test script to analyze a patch, eg:
 
 ```bash
-PYTHONPATH=. python tests/test_gemini_analysis.py
+PYTHONPATH=. python tests/test_gemini_pro_analysis.py
 ```
 
 ## Example
@@ -91,7 +71,7 @@ CHANGES:
 
 ## Patch Visualizations
 
-> **Note:** The following examples serve as a proof of concept. While they demonstrate the basic functionality, the current implementation still has room for improvement in terms of patch organization, object positioning, and suggestion quality.
+> **Note:** The following examples serve as a proof of concept. While they demonstrate the basic functionality, the current implementation still has room for improvement in terms of patch organization, object positioning, and suggestion quality. 
 
 ### Original Test Patch
 
@@ -109,6 +89,17 @@ The patch after Gemini Pro's suggested improvements:
 - Modified signal routing for frequency control
 - Added initialization message
 - Improved object positioning
+
+The patch has some significant pitfalls after Gemini Pro's suggestions:
+
+- Poor object positioning
+- Useless objects
+
+Other proof of poor performance are suggestions which:
+
+- Fail to connect objects properly
+- Leave ill-described comments
+- Gives (at best) weak/novel improvements
 
 ## Development
 
